@@ -37,7 +37,6 @@ int main(int argc, char* argv[]){
 		int p;
 		// print coba
 		// convert ke dec
-
 		// kalo angka simpan di reg1
 		if (c >= 48 && c <= 57) {
 			// simpan nilai lama reg2 dikali 2 ke reg3
@@ -58,27 +57,26 @@ int main(int argc, char* argv[]){
 			else reg3.bit7 = 0;
 			if (reg2.bit7 == 1) reg3.bit8 = 1;
 			else reg3.bit8 = 0;
-			printf("weh\n");
-			p = 0;
-		p += reg3.bit1;
-		p += reg3.bit2 * 2;
-		p += reg3.bit3 * 4;
-		p += reg3.bit4 * 8;
-		p += reg3.bit5 * 16;
-		p += reg3.bit6 * 32;
-		p += reg3.bit7 * 64;
-		p += reg3.bit8 * 128;
-		printf("reg3 = %d\n", p);
+
 			// kalo c bukan digit pertama / tidak semuanya = 0
 			if (!(reg2.bit1 == 0 && reg2.bit2 == 0
 				&& reg2.bit3 == 0 && reg2.bit4 == 0
 				&& reg2.bit5 == 0 && reg2.bit6 == 0
 				&& reg2.bit7 == 0 && reg2.bit8 == 0 )) {
+					// brrti 
 					reg4.bit5 = 1;
 					goto update_reg2;
 				}
 			update_reg3:
 				// update reg3 = c
+				reg3.bit1 = 0;
+				reg3.bit2 = 0;
+				reg3.bit3 = 0;
+				reg3.bit4 = 0;
+				reg3.bit5 = 0;
+				reg3.bit6 = 0;
+				reg3.bit7 = 0;
+				reg3.bit8 = 0;
 				if (c == '1') { // 1
 					reg3.bit1 = 1;
 				} else if (c == '2') { // 2
@@ -104,6 +102,7 @@ int main(int argc, char* argv[]){
 					reg3.bit4 = 1;
 					reg3.bit1 = 1;
 				}
+				p = 0;
 				goto fix_reg2;
 			update_reg2:
 				// shift kiri 3
@@ -299,7 +298,6 @@ int main(int argc, char* argv[]){
 		} else { // kalo baca operator
 			itung_operator:
 			if (reg4.bit1 == 1) { //operasi +
-			printf("masok\n");
 				// reg1 += reg2
 				if (reg2.bit1 == 1) {
 					// karena reg2.bit1 udh ga kepake bisa dipake buat nyimpen angka kalo 1 + 1
@@ -498,7 +496,6 @@ int main(int argc, char* argv[]){
 			reg2.bit7 = 0;
 			reg2.bit8 = 0;
 			if (c == EOF) {
-				printf("eof\n");
 				goto end;
 			}
 		}
