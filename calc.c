@@ -299,6 +299,7 @@ int main(int argc, char* argv[]){
 			itung_operator:
 			if (reg4.bit1 == 1) { //operasi +
 				// reg1 += reg2
+				tambah:
 				if (reg2.bit1 == 1) {
 					// karena reg2.bit1 udh ga kepake bisa dipake buat nyimpen angka kalo 1 + 1
 					if (reg1.bit1 == 0) {
@@ -459,6 +460,163 @@ int main(int argc, char* argv[]){
 							reg1.bit8 = 0;
 							reg2.bit8 = 1;
 						} else {
+							reg1.bit8 = 1;
+						}
+					}
+				}
+			} else if (reg4.bit2 == 1) {
+				kurang:
+				if (reg2.bit1 == 1) {
+					if (reg1.bit1 == 0) {
+						reg1.bit1 = 1; // update reg1
+					} else {
+						reg1.bit1 = 0; // nyimpen di reg2.bit1 = 1
+						reg2.bit1 = 0;
+					}
+				}
+				if (reg2.bit2 == 1) {
+					if (reg1.bit2 == 0) {
+						if (reg2.bit1 == 0) {
+							reg1.bit2 = 1; // update reg1
+						}
+					} else { // reg1.bit2 == 1
+						if (reg2.bit1 == 0) {
+							reg1.bit2 = 0; // nyimpen di reg2
+							reg2.bit2 = 0;
+						}
+					}
+				} else {
+					if (reg2.bit1 == 1) {
+						if (reg1.bit2 == 1) {
+							reg1.bit2 = 0;
+						} else {
+							reg2.bit2 = 1;
+							reg1.bit2 = 1;
+						}
+					}
+				}
+				if (reg2.bit3 == 1) {
+					if (reg1.bit3 == 0) {
+						if (reg2.bit2 == 0) {
+							reg1.bit3 = 1; // update reg1
+						}
+					} else { // reg1.bit2 == 1
+						if (reg2.bit2 == 0) {
+							reg1.bit3 = 0; // nyimpen di reg2
+							reg2.bit3 = 0;
+						}
+					}
+				} else {
+					if (reg2.bit2 == 1) {
+						if (reg1.bit3 == 1) {
+							reg1.bit3 = 0;
+						} else {
+							reg2.bit3 = 1;
+							reg1.bit3 = 1;
+						}
+					}
+				}
+				if (reg2.bit4 == 1) {
+					if (reg1.bit4 == 0) {
+						if (reg2.bit3 == 0) {
+							reg1.bit4 = 1; // update reg1
+						}
+					} else { // reg1.bit2 == 1
+						if (reg2.bit3 == 0) {
+							reg1.bit4 = 0; // nyimpen di reg2
+							reg2.bit4 = 0;
+						}
+					}
+				} else {
+					if (reg2.bit3 == 1) {
+						if (reg1.bit4 == 1) {
+							reg1.bit4 = 0;
+						} else {
+							reg2.bit4 = 1;
+							reg1.bit4 = 1;
+						}
+					}
+				}
+				if (reg2.bit5 == 1) {
+					if (reg1.bit5 == 0) {
+						if (reg2.bit4 == 0) {
+							reg1.bit5 = 1; // update reg1
+						}
+					} else { // reg1.bit2 == 1
+						if (reg2.bit4 == 0) {
+							reg1.bit5 = 0; // nyimpen di reg2
+							reg2.bit5 = 0;
+						}
+					}
+				} else {
+					if (reg2.bit4 == 1) {
+						if (reg1.bit5 == 1) {
+							reg1.bit5 = 0;
+						} else {
+							reg2.bit5 = 1;
+							reg1.bit5 = 1;
+						}
+					}
+				}
+				if (reg2.bit6 == 1) {
+					if (reg1.bit6 == 0) {
+						if (reg2.bit5 == 0) {
+							reg1.bit6 = 1; // update reg1
+						}
+					} else { // reg1.bit2 == 1
+						if (reg2.bit5 == 0) {
+							reg1.bit6 = 0; // nyimpen di reg2
+							reg2.bit6 = 0;
+						}
+					}
+				} else {
+					if (reg2.bit5 == 1) {
+						if (reg1.bit6 == 1) {
+							reg1.bit6 = 0;
+						} else {
+							reg2.bit6 = 1;
+							reg1.bit6 = 1;
+						}
+					}
+				}
+				if (reg2.bit7 == 1) {
+					if (reg1.bit7 == 0) {
+						if (reg2.bit6 == 0) {
+							reg1.bit7 = 1; // update reg1
+						}
+					} else { // reg1.bit2 == 1
+						if (reg2.bit6 == 0) {
+							reg1.bit7 = 0; // nyimpen di reg2
+							reg2.bit7 = 0;
+						}
+					}
+				} else {
+					if (reg2.bit6 == 1) {
+						if (reg1.bit7 == 1) {
+							reg1.bit7 = 0;
+						} else {
+							reg2.bit7 = 1;
+							reg1.bit7 = 1;
+						}
+					}
+				}
+				if (reg2.bit8 == 1) {
+					if (reg1.bit8 == 0) {
+						if (reg2.bit7 == 0) {
+							reg1.bit8 = 1; // update reg1
+						}
+					} else { // reg1.bit2 == 1
+						if (reg2.bit7 == 0) {
+							reg1.bit8 = 0; // nyimpen di reg2
+							reg2.bit8 = 0;
+						}
+					}
+				} else {
+					if (reg2.bit7 == 1) {
+						if (reg1.bit8 == 1) {
+							reg1.bit8 = 0;
+						} else {
+							reg2.bit8 = 1;
 							reg1.bit8 = 1;
 						}
 					}
