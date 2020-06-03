@@ -30,9 +30,9 @@ int main(int argc, char* argv[]){
 
 	// most significant bit = bit8
 	// reg1 = retval / left operand
-	// reg2 buat nyimpen nilai yang dibaca sekali
+	// reg2 right operand, temp reg
 	// reg3 buat bantu reg2 nyimpen nilai yg dibaca
-	// reg4 = prev state
+	// reg4 operator
 	while ((c = fgetc(file)) != EOF) {
 		int p;
 		// print coba
