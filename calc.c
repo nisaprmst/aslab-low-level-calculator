@@ -108,38 +108,50 @@ int main(int argc, char* argv[]){
 				// tambah reg3
 			fix_reg2:
 				// reg2 += reg3
+				// reg4.bit8 buat simpenan
+				printf("plus\n");
+					printf("A %d %d %d %d %d %d %d %d\n\n", reg2.bit8, reg2.bit7, reg2.bit6, reg2.bit5, reg2.bit4, reg2.bit3, reg2.bit2, reg2.bit1);
+					printf("B %d %d %d %d %d %d %d %d\n\n", reg3.bit8, reg3.bit7, reg3.bit6, reg3.bit5, reg3.bit4, reg3.bit3, reg3.bit2, reg3.bit1);
+
+				// reg4.bit8 buat simpenan
+				reg4.bit8 = 0;
 				if (reg3.bit1) { // karena reg3.bit1 udh ga kepake bisa dipake buat nyimpen angka kalo 1 + 1
-					reg3.bit1 = reg2.bit1; // nyimpen / ga
+					reg4.bit8 = reg2.bit1; // nyimpen / ga
 					reg2.bit1 = ~reg2.bit1; //update reg2
 				}
-				if (reg3.bit2 != reg3.bit1)  {
-					reg3.bit2 = reg2.bit2; // nyimpen / ga
+				if (reg3.bit2 != reg4.bit8)  {
+					reg4.bit8 = reg2.bit2; // nyimpen / ga
 					reg2.bit2 = ~reg2.bit2; //update reg2
 				}
-				if (reg3.bit3 != reg3.bit2)  {
-					reg3.bit3 = reg2.bit3; // nyimpen / ga
+				if (reg3.bit3 != reg4.bit8)  {
+					reg4.bit8 = reg2.bit3; // nyimpen / ga
 					reg2.bit3 = ~reg2.bit3; //update reg2
 				}
-				if (reg3.bit4 != reg3.bit3)  {
-					reg3.bit4 = reg2.bit4; // nyimpen / ga
+				if (reg3.bit4 != reg4.bit8)  {
+					reg4.bit8 = reg2.bit4; // nyimpen / ga
 					reg2.bit4 = ~reg2.bit4; //update reg2
 				}
-				if (reg3.bit5 != reg3.bit4)  {
-					reg3.bit5 = reg2.bit5; // nyimpen / ga
+				if (reg3.bit5 != reg4.bit8)  {
+					reg4.bit8 = reg2.bit5; // nyimpen / ga
 					reg2.bit5 = ~reg2.bit5; //update reg2
 				}
-				if (reg3.bit6 != reg3.bit5)  {
-					reg3.bit6 = reg2.bit6; // nyimpen / ga
+				if (reg3.bit6 != reg4.bit8)  {
+					reg4.bit8 = reg2.bit6; // nyimpen / ga
 					reg2.bit6 = ~reg2.bit6; //update reg2
 				}
-				if (reg3.bit7 != reg3.bit6)  {
-					reg3.bit7 = reg2.bit7; // nyimpen / ga
+				if (reg3.bit7 != reg4.bit8)  {
+					reg4.bit8 = reg2.bit7; // nyimpen / ga
 					reg2.bit7 = ~reg2.bit7; //update reg2
 				} 
-				if (reg3.bit8 != reg3.bit7)  {
-					reg3.bit8 = reg2.bit8; // nyimpen / ga
+				if (reg3.bit8 != reg4.bit8)  {
+					reg4.bit8 = reg2.bit8; // nyimpen / ga
 					reg2.bit8 = ~reg2.bit8; //update reg2
 				}
+
+			if (reg4.bit3 == 1 && reg4.bit7 == 1) {
+				printf("masalah\n");
+				goto shift_reg2_multiplication;
+			}
 			if (reg4.bit5 == 1) {
 				reg4.bit5 = 0;
 				goto update_reg3;
@@ -155,41 +167,43 @@ int main(int argc, char* argv[]){
 				reg1.bit7 = reg2.bit7;
 				reg1.bit8 = reg2.bit8;
 			}
-		} else { // kalo baca operator
 			itung_operator:
+			printf("operator: %d %d %d %d\n", reg4.bit1, reg4.bit2, reg4.bit3, reg4.bit4);
 			if (reg4.bit1 == 1) { //operasi +
 				// reg1 += reg2
 				tambah:
+				reg4.bit8 = 0;
+				// reg4.bit8 buat simpenan
 				if (reg2.bit1) { // karena reg2.bit1 udh ga kepake bisa dipake buat nyimpen angka kalo 1 + 1
-					reg2.bit1 = reg1.bit1; // nyimpen / ga
+					reg4.bit8 = reg1.bit1; // nyimpen / ga
 					reg1.bit1 = ~reg1.bit1; //update reg1
 				}
-				if (reg2.bit2 != reg2.bit1)  {
-					reg2.bit2 = reg1.bit2; // nyimpen / ga
+				if (reg2.bit2 != reg4.bit8)  {
+					reg4.bit8 = reg1.bit2; // nyimpen / ga
 					reg1.bit2 = ~reg1.bit2; //update reg1
 				}
-				if (reg2.bit3 != reg2.bit2)  {
-					reg2.bit3 = reg1.bit3; // nyimpen / ga
+				if (reg2.bit3 != reg4.bit8)  {
+					reg4.bit8 = reg1.bit3; // nyimpen / ga
 					reg1.bit3 = ~reg1.bit3; //update reg1
 				}
-				if (reg2.bit4 != reg2.bit3)  {
-					reg2.bit4 = reg1.bit4; // nyimpen / ga
+				if (reg2.bit4 != reg4.bit8)  {
+					reg4.bit8 = reg1.bit4; // nyimpen / ga
 					reg1.bit4 = ~reg1.bit4; //update reg1
 				}
-				if (reg2.bit5 != reg2.bit4)  {
-					reg2.bit5 = reg1.bit5; // nyimpen / ga
+				if (reg2.bit5 != reg4.bit8)  {
+					reg4.bit8 = reg1.bit5; // nyimpen / ga
 					reg1.bit5 = ~reg1.bit5; //update reg1
 				}
-				if (reg2.bit6 != reg2.bit5)  {
-					reg2.bit6 = reg1.bit6; // nyimpen / ga
+				if (reg2.bit6 != reg4.bit8)  {
+					reg4.bit8 = reg1.bit6; // nyimpen / ga
 					reg1.bit6 = ~reg1.bit6; //update reg1
 				}
-				if (reg2.bit7 != reg2.bit6)  {
-					reg2.bit7 = reg1.bit7; // nyimpen / ga
+				if (reg2.bit7 != reg4.bit8)  {
+					reg4.bit8 = reg1.bit7; // nyimpen / ga
 					reg1.bit7 = ~reg1.bit7; //update reg1
 				} 
-				if (reg2.bit8 != reg2.bit7)  {
-					reg2.bit8 = reg1.bit8; // nyimpen / ga
+				if (reg2.bit8 != reg4.bit8)  {
+					reg4.bit8 = reg1.bit8; // nyimpen / ga
 					reg1.bit8 = ~reg1.bit8; //update reg1
 				}
 			} else if (reg4.bit2 == 1) { //operasi -
@@ -226,8 +240,94 @@ int main(int argc, char* argv[]){
 					reg2.bit8 = ~reg1.bit8; // nyimpen / ga
 					reg1.bit8 = ~reg1.bit8; //update reg1
 				}
+			} else if (reg4.bit3 == 1) { //operasi *
+				// reg1 = B
+				// reg2 = A
+				// reg3 = M
+				// reg4.bit6 = Q(-1)
+				reg3.bit1 = reg2.bit1; reg2.bit1 = 0;
+				reg3.bit2 = reg2.bit2; reg2.bit2 = 0;
+				reg3.bit3 = reg2.bit3; reg2.bit3 = 0;
+				reg3.bit4 = reg2.bit4; reg2.bit4 = 0;
+				reg3.bit5 = reg2.bit5; reg2.bit5 = 0;
+				reg3.bit6 = reg2.bit6; reg2.bit6 = 0;
+				reg3.bit7 = reg2.bit7; reg2.bit7 = 0;
+				reg3.bit8 = reg2.bit8; reg2.bit8 = 0;
+				reg4.bit6 = 0; //pembantu
+				reg4.bit7 = 1; // nandain masuk ke perkalian
+				c = 8; // counter
+				printf("c nya udah kok %c", c);
+				loop_multiplication:
+					printf("A %d %d %d %d %d %d %d %d\n", reg2.bit8, reg2.bit7, reg2.bit6, reg2.bit5, reg2.bit4, reg2.bit3, reg2.bit2, reg2.bit1);
+					printf("B %d %d %d %d %d %d %d %d\n", reg1.bit8, reg1.bit7, reg1.bit6, reg1.bit5, reg1.bit4, reg1.bit3, reg1.bit2, reg1.bit1);
+					printf("M %d %d %d %d %d %d %d %d\n", reg3.bit8, reg3.bit7, reg3.bit6, reg3.bit5, reg3.bit4, reg3.bit3, reg3.bit2, reg3.bit1);
+					printf("Q %d\n", reg4.bit6);
+					printf("c %d\n", c);
+					printf("\n");
+
+					if (reg1.bit1 && !reg4.bit6) { // 10
+					printf("lala\n");
+						reg4.bit8 = 0;
+						if (reg3.bit1) { // karena reg3.bit1 udh ga kepake bisa dipake buat nyimpen angka kalo 1 + 1
+							reg4.bit8 = ~reg2.bit1; // nyimpen / ga
+							reg2.bit1 = ~reg2.bit1; //update reg2
+						}
+						if (reg3.bit2 != reg4.bit8)  {
+							reg4.bit8 = ~reg2.bit2; // nyimpen / ga
+							reg2.bit2 = ~reg2.bit2; //update reg2
+						}
+						if (reg3.bit3 != reg4.bit8)  {
+							reg4.bit8 = ~reg2.bit3; // nyimpen / ga
+							reg2.bit3 = ~reg2.bit3; //update reg2
+						}
+						if (reg3.bit4 != reg4.bit8)  {
+							reg4.bit8 = ~reg2.bit4; // nyimpen / ga
+							reg2.bit4 = ~reg2.bit4; //update reg2
+						}
+						if (reg3.bit5 != reg4.bit8)  {
+							reg4.bit8 = ~reg2.bit5; // nyimpen / ga
+							reg2.bit5 = ~reg2.bit5; //update reg2
+						}
+						if (reg3.bit6 != reg4.bit8)  {
+							reg4.bit8 = ~reg2.bit6; // nyimpen / ga
+							reg2.bit6 = ~reg2.bit6; //update reg2
+						}
+						if (reg3.bit7 != reg4.bit8)  {
+							reg4.bit8 = ~reg2.bit7; // nyimpen / ga
+							reg2.bit7 = ~reg2.bit7; //update reg2
+						} 
+						if (reg3.bit8 != reg4.bit8)  {
+							reg4.bit8 = ~reg2.bit8; // nyimpen / ga
+							reg2.bit8 = ~reg2.bit8; //update reg2
+						}
+					} else if (!reg1.bit1 && reg4.bit6) { //01
+						goto fix_reg2;
+					}
+				shift_reg2_multiplication:
+					reg4.bit6 = reg1.bit1;
+					reg1.bit1 = reg1.bit2;
+					reg1.bit2 = reg1.bit3;
+					reg1.bit3 = reg1.bit4;
+					reg1.bit4 = reg1.bit5;
+					reg1.bit5 = reg1.bit6;
+					reg1.bit6 = reg1.bit7;
+					reg1.bit7 = reg1.bit8;
+					reg1.bit8 = reg2.bit1;
+					reg2.bit1 = reg2.bit2;
+					reg2.bit2 = reg2.bit3;
+					reg2.bit3 = reg2.bit4;
+					reg2.bit4 = reg2.bit5;
+					reg2.bit5 = reg2.bit6;
+					reg2.bit6 = reg2.bit7;
+					reg2.bit7 = reg2.bit8;
+					reg2.bit8 = 1;
+				c--;
+				
+				if (c > 0) goto loop_multiplication;
+				reg4.bit7 = 0;
 			}
 			// + bit1, - bit2, * bit3, / bit4
+		} else { // kalo baca operator
 			if (c == '+') {
 				reg4.bit1 = 1;
 				reg4.bit2 = 0;
@@ -263,7 +363,6 @@ int main(int argc, char* argv[]){
 			}
 		}
 
-		printf("c = %c\n", c);
 		p = 0;
 		p += reg1.bit1;
 		p += reg1.bit2 * 2;
@@ -305,7 +404,8 @@ int main(int argc, char* argv[]){
 		p += reg4.bit8 * 128;
 		printf("reg4 = %d\n", p);
 	}
-	goto itung_operator;
+	printf("udh\n");
+	// goto itung_operator;
 	// print coba
 	// convert ke dec
 	end:
@@ -318,6 +418,14 @@ int main(int argc, char* argv[]){
 		res += reg1.bit6 * 32;
 		res += reg1.bit7 * 64;
 		res += reg1.bit8 * 128;
+		printf("reg1.bit1 = %d\n", reg1.bit1);
+		printf("reg1.bit2 = %d\n", reg1.bit2);
+		printf("reg1.bit3 = %d\n", reg1.bit3);
+		printf("reg1.bit4 = %d\n", reg1.bit4);
+		printf("reg1.bit5 = %d\n", reg1.bit5);
+		printf("reg1.bit6 = %d\n", reg1.bit6);
+		printf("reg1.bit7 = %d\n", reg1.bit7);
+		printf("reg1.bit8 = %d\n", reg1.bit8);
 		printf("hasil = %d\n", res);
 	
     return 0;
