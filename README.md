@@ -1,10 +1,10 @@
 # Low Level Calculator
 Program ini dibuat untuk memenuhi tugas seleksi asisten Laboratorium Sistem Paralel dan Terdistribusi
-## Cara Menggunakan
+## Getting Started
 ### Bagi pengguna Linux
 1. Clone repo ini
 ```
-user@userComputer:~/dir git clone https://github.com/nisaprmst/aslab-low-level-calculator.git
+user@userComputer:~/dir git clone https://github.com/nisaprmst/low-level-calculator.git
 
 ```
 2. Buka folder tempat Anda melakukan clone
@@ -16,3 +16,6 @@ gcc -o main calc.c
 ```
 ./main <nama-file>
 ```
+## Cara menggunakan
+Kalkulator ini hanya mendukung operator +, -, \*, dan / (div). Range yang didukung adalah 0-255.
+Untuk menjalankannya, masukkan ekspresi yang diinginkan pada file text lalu dijalankan menggunakan langkah-langkah yang sudah dijelaskan di atas.
